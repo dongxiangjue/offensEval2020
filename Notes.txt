@@ -1,0 +1,2 @@
+dataset folder, run_glue.py, run_offenseval.sh is for fine-tuning, put run_glue.py, run_offenseval.sh under the transformers/src folder
+offenseval2020, run_pretrain.sh is for pre-training, go into transformers/examples run
