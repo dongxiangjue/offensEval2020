@@ -1,5 +1,5 @@
 python3 run_language_modeling.py \
-  --output_dir=roberta_pretrain_output \
+  --output_dir=roberta_pretrain_linebyline_final_output \
   --model_type roberta \
   --model_name_or_path roberta-base \
   --do_train \
@@ -10,4 +10,10 @@ python3 run_language_modeling.py \
   --mlm \
   --per_gpu_train_batch_size=8 \
   --per_gpu_eval_batch_size=8 \
-  --save_steps 2000 \
+  --save_steps 100000 \
+  --block_size 128 \
+  --line_by_line \
+  --overwrite_cache \
+  --overwrite_output_dir \
+  --num_train_epochs=10
+
