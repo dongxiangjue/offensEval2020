@@ -1,6 +1,6 @@
 python3 run_glue.py \
   --model_type roberta \
-  --model_name_or_path roberta-base-uncased \
+  --model_name_or_path roberta-base \
   --task_name $TASK_NAME \
   --do_train \
   --do_eval \
