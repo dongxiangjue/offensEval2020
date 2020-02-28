@@ -59,7 +59,7 @@ from transformers import (
     get_linear_schedule_with_warmup,
 )
 from transformers import glue_compute_metrics as compute_metrics
-from transformers import glue_convert_examples_to_features as convert_examples_to_features
+from transformers import offense_convert_examples_to_features as convert_examples_to_features
 from transformers import glue_output_modes as output_modes
 from transformers import glue_processors as processors
 
@@ -210,7 +210,7 @@ def train(args, train_dataset, model, tokenizer):
 
             model.train()
             batch = tuple(t.to(args.device) for t in batch)
-            inputs = {"input_ids": batch[0], "attention_mask": batch[1], "labels": batch[3]}
+            inputs = {"input_ids": batch[0], "attention_mask": batch[1], "classification_labels": batch[3],"regression_labels": batch[4]}
             if args.model_type != "distilbert":
                 inputs["token_type_ids"] = (
                     batch[2] if args.model_type in ["bert", "xlnet", "albert"] else None
@@ -319,36 +319,40 @@ def evaluate(args, model, tokenizer, prefix=""):
         logger.info("  Batch size = %d", args.eval_batch_size)
         eval_loss = 0.0
         nb_eval_steps = 0
-        preds = None
-        out_label_ids = None
+        c_preds = None
+        r_preds = None
+        c_out_label_ids = None
+        r_out_label_ids = None
         for batch in tqdm(eval_dataloader, desc="Evaluating"):
             model.eval()
             batch = tuple(t.to(args.device) for t in batch)
 
             with torch.no_grad():
-                inputs = {"input_ids": batch[0], "attention_mask": batch[1], "labels": batch[3]}
+                inputs = {"input_ids": batch[0], "attention_mask": batch[1], "classifcation_labels": batch[3],"regression_labels": batch[4]}
                 if args.model_type != "distilbert":
                     inputs["token_type_ids"] = (
                         batch[2] if args.model_type in ["bert", "xlnet", "albert"] else None
                     )  # XLM, DistilBERT, RoBERTa, and XLM-RoBERTa don't use segment_ids
                 outputs = model(**inputs)
-                tmp_eval_loss, logits = outputs[:2]
+                tmp_eval_loss, c_logits, r_logits = outputs[:3]
 
                 eval_loss += tmp_eval_loss.mean().item()
             nb_eval_steps += 1
-            if preds is None:
-                preds = logits.detach().cpu().numpy()
-                out_label_ids = inputs["labels"].detach().cpu().numpy()
+            if c_preds is None or r_preds is None:
+                c_preds = c_logits.detach().cpu().numpy()
+                r_preds = r_logits.detach().cpu().numpy()
+                c_out_label_ids = inputs["classifcation_labels"].detach().cpu().numpy()
+                r_out_label_ids = inputs["regression_labels"].detach().cpu().numpy()
             else:
-                preds = np.append(preds, logits.detach().cpu().numpy(), axis=0)
-                out_label_ids = np.append(out_label_ids, inputs["labels"].detach().cpu().numpy(), axis=0)
+                c_preds = np.append(c_preds, c_logits.detach().cpu().numpy(), axis=0)
+                c_out_label_ids = np.append(c_out_label_ids, inputs["classifcation_labels"].detach().cpu().numpy(), axis=0)
+                r_preds = np.append(r_preds, r_logits.detach().cpu().numpy(), axis=0)
+                r_out_label_ids = np.append(r_out_label_ids, inputs["regression_labels"].detach().cpu().numpy(), axis=0)
 
         eval_loss = eval_loss / nb_eval_steps
-        if args.output_mode == "classification":
-            preds = np.argmax(preds, axis=1)
-        elif args.output_mode == "regression":
-            preds = np.squeeze(preds)
-        result = compute_metrics(eval_task, preds, out_label_ids)
+        c_preds = np.argmax(c_preds, axis=1)
+        r_preds = np.squeeze(r_preds)
+        result = compute_metrics(eval_task, c_preds, c_out_label_ids,r_preds, r_out_label_ids,)
         results.update(result)
 
         output_eval_file = os.path.join(eval_output_dir, prefix, "eval_results.txt")
@@ -367,7 +371,7 @@ def load_and_cache_examples(args, task, tokenizer, evaluate=False):
 
     processor = processors[task]()
     output_mode = output_modes[task]
-    # Load data features from cache or dataset file
+    # Load data features processors[task]from cache or dataset file
     cached_features_file = os.path.join(
         args.data_dir,
         "cached_{}_{}_{}_{}".format(
@@ -382,17 +386,17 @@ def load_and_cache_examples(args, task, tokenizer, evaluate=False):
         features = torch.load(cached_features_file)
     else:
         logger.info("Creating features from dataset file at %s", args.data_dir)
-        label_list = processor.get_labels()
-        if task in ["mnli", "mnli-mm"] and args.model_type in ["roberta", "xlmroberta"]:
-            # HACK(label indices are swapped in RoBERTa pretrained model)
-            label_list[1], label_list[2] = label_list[2], label_list[1]
+        classification_label_list = processor.get_classification_labels()
+        regression_label_list = processor.get_regression_labels()
+
         examples = (
             processor.get_dev_examples(args.data_dir) if evaluate else processor.get_train_examples(args.data_dir)
         )
         features = convert_examples_to_features(
             examples,
             tokenizer,
-            label_list=label_list,
+            classification_label_list=classification_label_list,
+            regression_label_list=regression_label_list,
             max_length=args.max_seq_length,
             output_mode=output_mode,
             pad_on_left=bool(args.model_type in ["xlnet"]),  # pad on the left for xlnet
@@ -410,12 +414,10 @@ def load_and_cache_examples(args, task, tokenizer, evaluate=False):
     all_input_ids = torch.tensor([f.input_ids for f in features], dtype=torch.long)
     all_attention_mask = torch.tensor([f.attention_mask for f in features], dtype=torch.long)
     all_token_type_ids = torch.tensor([f.token_type_ids for f in features], dtype=torch.long)
-    if output_mode == "classification":
-        all_labels = torch.tensor([f.label for f in features], dtype=torch.long)
-    elif output_mode == "regression":
-        all_labels = torch.tensor([f.label for f in features], dtype=torch.float)
+    all_classification_labels = torch.tensor([f.classification_label for f in features], dtype=torch.long)
+    all_regression_labels = torch.tensor([f.regression_label for f in features], dtype=torch.float)
 
-    dataset = TensorDataset(all_input_ids, all_attention_mask, all_token_type_ids, all_labels)
+    dataset = TensorDataset(all_input_ids, all_attention_mask, all_token_type_ids, all_classification_labels,all_regression_labels)
     return dataset
 
 
@@ -607,8 +609,9 @@ def main():
         raise ValueError("Task not found: %s" % (args.task_name))
     processor = processors[args.task_name]()
     args.output_mode = output_modes[args.task_name]
-    label_list = processor.get_labels()
-    num_labels = len(label_list)
+    classification_label_list = processor.get_classification_labels()
+    regression_label_list = processor.get_regression_labels()
+    num_classification_labels = len(classification_label_list)
 
     # Load pretrained model and tokenizer
     if args.local_rank not in [-1, 0]:
@@ -618,7 +621,7 @@ def main():
     config_class, model_class, tokenizer_class = MODEL_CLASSES[args.model_type]
     config = config_class.from_pretrained(
         args.config_name if args.config_name else args.model_name_or_path,
-        num_labels=num_labels,
+        num_labels=num_classification_labels,
         finetuning_task=args.task_name,
         cache_dir=args.cache_dir if args.cache_dir else None,
     )
