@@ -593,24 +593,24 @@ def main():
         = BertConfig, RobertaConfig, EnsembleForOffensiveClassification, BertTokenizer, RobertaTokenizer
 
     bert_config = bert_config_class.from_pretrained(
-        args.bert_config,
+        args.bert_config_name,
         num_labels=num_labels,
         finetuning_task=args.task_name,
         cache_dir=args.cache_dir if args.cache_dir else None,
     )
     roberta_config = roberta_config_class.from_pretrained(
-        args.roberta_config,
+        args.roberta_config_name,
         num_labels=num_labels,
         finetuning_task=args.task_name,
         cache_dir=args.cache_dir if args.cache_dir else None,
     )
     bert_tokenizer = bert_tokenizer_class.from_pretrained(
-        args.bert_tokenizer,
+        args.bert_tokenizer_name,
         do_lower_case=args.do_lower_case,
         cache_dir=args.cache_dir if args.cache_dir else None,
     )
     roberta_tokenizer = roberta_tokenizer_class.from_pretrained(
-        args.roberta_tokenizer,
+        args.roberta_tokenizer_name,
         do_lower_case=args.do_lower_case,
         cache_dir=args.cache_dir if args.cache_dir else None,
     )
