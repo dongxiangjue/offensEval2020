@@ -361,9 +361,6 @@ def load_and_cache_examples(args, task, bert_tokenizer, roberta_tokenizer, evalu
     else:
         logger.info("Creating features from dataset file at %s", args.data_dir)
         label_list = processor.get_labels()
-        if task in ["mnli", "mnli-mm"] and args.model_type in ["roberta", "xlmroberta"]:
-            # HACK(label indices are swapped in RoBERTa pretrained model)
-            label_list[1], label_list[2] = label_list[2], label_list[1]
         examples = (
             processor.get_dev_examples(args.data_dir) if evaluate else processor.get_train_examples(args.data_dir)
         )
@@ -374,10 +371,8 @@ def load_and_cache_examples(args, task, bert_tokenizer, roberta_tokenizer, evalu
             label_list=label_list,
             max_length=args.max_seq_length,
             output_mode=output_mode,
-            pad_on_left=bool(args.model_type in ["xlnet"]),  # pad on the left for xlnet
             bert_pad_token=bert_tokenizer.convert_tokens_to_ids([bert_tokenizer.pad_token])[0],
             roberta_pad_token=roberta_tokenizer.convert_tokens_to_ids([roberta_tokenizer.pad_token])[0],
-            pad_token_segment_id=4 if args.model_type in ["xlnet"] else 0,
         )
         if args.local_rank in [-1, 0]:
             logger.info("Saving features into cached file %s", cached_features_file)
@@ -585,7 +580,6 @@ def main():
     if args.local_rank not in [-1, 0]:
         torch.distributed.barrier()  # Make sure only the first process in distributed training will download model & vocab
 
-    args.model_type = args.model_type.lower()
     bert_config_class, roberta_config_class, ensemble_model, bert_tokenizer_class, roberta_tokenizer_class \
         = BertConfig, RobertaConfig, EnsembleForOffensiveClassification, BertTokenizer, RobertaTokenizer
 
