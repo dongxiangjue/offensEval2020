@@ -427,10 +427,19 @@ def main():
 
     # Other parameters
     parser.add_argument(
-        "--config_name", default="", type=str, help="Pretrained config name or path if not the same as model_name",
+        "--bert_config_name", default="", type=str, help="Pretrained config name or path if not the same as model_name",
     )
     parser.add_argument(
-        "--tokenizer_name",
+        "--roberta_config_name", default="", type=str, help="Pretrained config name or path if not the same as model_name",
+    )
+    parser.add_argument(
+        "--bert_tokenizer_name",
+        default="",
+        type=str,
+        help="Pretrained tokenizer name or path if not the same as model_name",
+    )
+    parser.add_argument(
+        "--roberta_tokenizer_name",
         default="",
         type=str,
         help="Pretrained tokenizer name or path if not the same as model_name",
@@ -584,24 +593,24 @@ def main():
         = BertConfig, RobertaConfig, EnsembleForOffensiveClassification, BertTokenizer, RobertaTokenizer
 
     bert_config = bert_config_class.from_pretrained(
-        args.config_name if args.config_name else args.model_name_or_path,
+        args.bert_config,
         num_labels=num_labels,
         finetuning_task=args.task_name,
         cache_dir=args.cache_dir if args.cache_dir else None,
     )
     roberta_config = roberta_config_class.from_pretrained(
-        args.config_name if args.config_name else args.model_name_or_path,
+        args.roberta_config,
         num_labels=num_labels,
         finetuning_task=args.task_name,
         cache_dir=args.cache_dir if args.cache_dir else None,
     )
     bert_tokenizer = bert_tokenizer_class.from_pretrained(
-        args.tokenizer_name if args.tokenizer_name else args.model_name_or_path,
+        args.bert_tokenizer,
         do_lower_case=args.do_lower_case,
         cache_dir=args.cache_dir if args.cache_dir else None,
     )
     roberta_tokenizer = roberta_tokenizer_class.from_pretrained(
-        args.tokenizer_name if args.tokenizer_name else args.model_name_or_path,
+        args.roberta_tokenizer,
         do_lower_case=args.do_lower_case,
         cache_dir=args.cache_dir if args.cache_dir else None,
     )
