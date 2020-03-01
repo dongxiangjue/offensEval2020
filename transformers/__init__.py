@@ -50,6 +50,7 @@ from .data import (
     SquadV2Processor,
     glue_convert_examples_to_features,
     offense_convert_examples_to_features,
+    ensemble_convert_examples_to_features,
     glue_output_modes,
     glue_processors,
     glue_tasks_num_labels,
@@ -79,7 +80,7 @@ from .file_utils import (
 
 # Model Cards
 from .modelcard import ModelCard
-
+from .modeling_ensemble import EnsembleForOffensiveClassification
 # TF 2.0 <=> PyTorch conversion utilities
 from .modeling_tf_pytorch_utils import (
     convert_tf_weight_name_to_pt_weight_name,
