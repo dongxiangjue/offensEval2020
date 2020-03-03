@@ -198,7 +198,7 @@ def train(args, train_dataset, model, bert_tokenizer, roberta_tokenizer):
 
             model.train()
             batch = tuple(t.to(args.device) for t in batch)
-            inputs = {"bert_input_ids": batch[0], "roberta_input_ids": batch[1],"attention_mask": batch[2], "classification_labels": batch[3]}
+            inputs = {"bert_input_ids": batch[0], "roberta_input_ids": batch[1],"bert_attention_mask": batch[2],"roberta_attention_mask": batch[3], "classification_labels": batch[4]}
             outputs = model(**inputs)
             loss = outputs[0]  # model outputs are always tuple in transformers (see doc)
 
@@ -311,7 +311,7 @@ def evaluate(args, model, bert_tokenizer, roberta_tokenizer, prefix=""):
             batch = tuple(t.to(args.device) for t in batch)
 
             with torch.no_grad():
-                inputs = {"bert_input_ids": batch[0], "roberta_input_ids": batch[1], "attention_mask": batch[2], "classification_labels": batch[3]}
+                inputs = {"bert_input_ids": batch[0], "roberta_input_ids": batch[1], "bert_attention_mask": batch[2],"roberta_attention_mask": batch[3], "classification_labels": batch[4]}
                 outputs = model(**inputs)
                 tmp_eval_loss, logits = outputs[:2]
 
@@ -384,11 +384,11 @@ def load_and_cache_examples(args, task, bert_tokenizer, roberta_tokenizer, evalu
     # Convert to Tensors and build dataset
     all_bert_input_ids = torch.tensor([f.bert_input_ids for f in features], dtype=torch.long)
     all_roberta_input_ids = torch.tensor([f.roberta_input_ids for f in features], dtype=torch.long)
-    all_attention_mask = torch.tensor([f.attention_mask for f in features], dtype=torch.long)
-    all_token_type_ids = torch.tensor([f.token_type_ids for f in features], dtype=torch.long)
+    all_bert_attention_mask = torch.tensor([f.bert_attention_mask for f in features], dtype=torch.long)
+    all_roberta_attention_mask = torch.tensor([f.roberta_attention_mask for f in features], dtype=torch.long)
     all_labels = torch.tensor([f.label for f in features], dtype=torch.long)
 
-    dataset = TensorDataset(all_bert_input_ids, all_roberta_input_ids, all_attention_mask, all_token_type_ids, all_labels)
+    dataset = TensorDataset(all_bert_input_ids, all_roberta_input_ids, all_bert_attention_mask, all_roberta_attention_mask, all_labels)
     return dataset
 
 

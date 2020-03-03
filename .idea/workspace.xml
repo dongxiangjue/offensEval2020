@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8c040ea8-a57e-46bd-b486-ce768b9a599f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/transformers/data/processors/glue.py" beforeDir="false" afterPath="$PROJECT_DIR$/transformers/data/processors/glue.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_ensemble.py" beforeDir="false" afterPath="$PROJECT_DIR$/run_ensemble.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transformers/modeling_ensemble.py" beforeDir="false" afterPath="$PROJECT_DIR$/transformers/modeling_ensemble.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,11 +13,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/run_ensemble.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="92">
-              <caret line="366" column="39" selection-start-line="366" selection-start-column="39" selection-end-line="366" selection-end-column="39" />
+              <caret line="387" column="109" selection-start-line="387" selection-start-column="109" selection-end-line="387" selection-end-column="109" />
               <folding>
                 <element signature="e#834#849#0" expanded="true" />
               </folding>
@@ -81,11 +82,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/transformers/data/processors/glue.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="292" lean-forward="true" selection-start-line="292" selection-end-line="292" />
+            <state relative-caret-position="234">
+              <caret line="224" column="36" selection-start-line="224" selection-start-column="36" selection-end-line="224" selection-end-column="36" />
               <folding>
                 <element signature="e#746#760#0" expanded="true" />
               </folding>
@@ -105,8 +106,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/transformers/modeling_ensemble.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
-              <caret line="106" column="44" selection-start-line="106" selection-start-column="44" selection-end-line="106" selection-end-column="44" />
+            <state relative-caret-position="335">
+              <caret line="45" column="26" lean-forward="true" selection-start-line="45" selection-start-column="26" selection-end-line="45" selection-end-column="26" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -141,7 +142,6 @@
       <find>bert</find>
       <find>evalua</find>
       <find>ALL_MODELS</find>
-      <find>ensemble</find>
       <find>name</find>
       <find>optimizer</find>
       <find>config</find>
@@ -153,8 +153,9 @@
       <find>sts-b</find>
       <find>Stsb</find>
       <find>sst</find>
-      <find>bert_config_name</find>
       <find>Sst2</find>
+      <find>ensemble</find>
+      <find>bert_config_name</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -168,17 +169,17 @@
         <option value="$PROJECT_DIR$/run_offense.py" />
         <option value="$PROJECT_DIR$/transformers/modeling_utils.py" />
         <option value="$PROJECT_DIR$/transformers/offense_test.py" />
-        <option value="$PROJECT_DIR$/transformers/modeling_ensemble.py" />
         <option value="$PROJECT_DIR$/run_glue.py" />
         <option value="$PROJECT_DIR$/offense_test.py" />
         <option value="$PROJECT_DIR$/run_pretrained_bert_finetune.sh" />
-        <option value="$PROJECT_DIR$/run_ensemble.py" />
         <option value="$PROJECT_DIR$/run_ensemble.sh" />
         <option value="$PROJECT_DIR$/transformers/__init__.py" />
         <option value="$PROJECT_DIR$/transformers/data/__init__.py" />
         <option value="$PROJECT_DIR$/transformers/data/processors/__init__.py" />
         <option value="$PROJECT_DIR$/transformers/data/processors/utils.py" />
         <option value="$PROJECT_DIR$/transformers/data/processors/glue.py" />
+        <option value="$PROJECT_DIR$/transformers/modeling_ensemble.py" />
+        <option value="$PROJECT_DIR$/run_ensemble.py" />
       </list>
     </option>
   </component>
@@ -291,7 +292,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.111409396" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.2966443" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
@@ -316,37 +317,37 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/transformers/modeling_ensemble.py</url>
-          <line>119</line>
+          <line>120</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/transformers/modeling_ensemble.py</url>
-          <line>134</line>
+          <line>135</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/transformers/modeling_ensemble.py</url>
-          <line>127</line>
+          <line>128</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/transformers/modeling_ensemble.py</url>
-          <line>128</line>
+          <line>129</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/transformers/modeling_ensemble.py</url>
-          <line>135</line>
+          <line>136</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/transformers/modeling_ensemble.py</url>
-          <line>136</line>
+          <line>137</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/transformers/modeling_ensemble.py</url>
-          <line>145</line>
+          <line>146</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
@@ -529,23 +530,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/transformers/modeling_ensemble.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="106" column="44" selection-start-line="106" selection-start-column="44" selection-end-line="106" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/run_ensemble.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="30" lean-forward="true" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/transformers/tokenization_utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="97">
@@ -574,16 +558,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/run_ensemble.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="366" column="39" selection-start-line="366" selection-start-column="39" selection-end-line="366" selection-end-column="39" />
-          <folding>
-            <element signature="e#834#849#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/transformers/data/processors/utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
@@ -603,10 +577,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/transformers/data/processors/glue.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="292" lean-forward="true" selection-start-line="292" selection-end-line="292" />
+        <state relative-caret-position="234">
+          <caret line="224" column="36" selection-start-line="224" selection-start-column="36" selection-end-line="224" selection-end-column="36" />
           <folding>
             <element signature="e#746#760#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transformers/modeling_ensemble.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="45" column="26" lean-forward="true" selection-start-line="45" selection-start-column="26" selection-end-line="45" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run_ensemble.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="30" lean-forward="true" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run_ensemble.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="387" column="109" selection-start-line="387" selection-start-column="109" selection-end-line="387" selection-end-column="109" />
+          <folding>
+            <element signature="e#834#849#0" expanded="true" />
           </folding>
         </state>
       </provider>
