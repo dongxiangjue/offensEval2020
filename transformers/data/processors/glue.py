@@ -267,9 +267,6 @@ def ensemble_convert_examples_to_features(
         assert len(roberta_attention_mask) == max_length, "Error with input length {} vs {}".format(
             len(roberta_attention_mask), max_length
         )
-        assert len(token_type_ids) == max_length, "Error with input length {} vs {}".format(
-            len(token_type_ids), max_length
-        )
 
         if output_mode == "classification":
             label = label_map[example.label]

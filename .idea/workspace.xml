@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8c040ea8-a57e-46bd-b486-ce768b9a599f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/transformers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/transformers/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/transformers/data/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/transformers/data/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/transformers/data/processors/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/transformers/data/processors/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/transformers/data/processors/glue.py" beforeDir="false" afterPath="$PROJECT_DIR$/transformers/data/processors/glue.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/transformers/data/processors/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/transformers/data/processors/utils.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -49,8 +45,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/transformers/data/processors/glue.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="294" column="19" lean-forward="true" selection-start-line="294" selection-start-column="19" selection-end-line="294" selection-end-column="19" />
+            <state relative-caret-position="34">
+              <caret line="269" lean-forward="true" selection-start-line="269" selection-end-line="269" />
               <folding>
                 <element signature="e#746#760#0" expanded="true" />
               </folding>
@@ -607,8 +603,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/transformers/data/processors/glue.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="294" column="19" lean-forward="true" selection-start-line="294" selection-start-column="19" selection-end-line="294" selection-end-column="19" />
+        <state relative-caret-position="34">
+          <caret line="269" lean-forward="true" selection-start-line="269" selection-end-line="269" />
           <folding>
             <element signature="e#746#760#0" expanded="true" />
           </folding>
