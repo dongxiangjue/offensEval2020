@@ -285,7 +285,7 @@ def ensemble_convert_examples_to_features(
 
         features.append(
             InputEnsembleFeatures(
-                bert_input_ids=bert_input_ids, roberta_input_ids=roberta_input_ids,bert_attention_mask=bert_attention_mask, roberta_attention_mask=roberta_attention_mask,token_type_ids=None, label=label
+                bert_input_ids=bert_input_ids, roberta_input_ids=roberta_input_ids,bert_attention_mask=bert_attention_mask, roberta_attention_mask=roberta_attention_mask,token_type_ids=None, classification_label=label
             )
         )
 

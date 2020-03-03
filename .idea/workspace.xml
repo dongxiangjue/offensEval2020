@@ -42,23 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/transformers/data/processors/glue.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="269" lean-forward="true" selection-start-line="269" selection-end-line="269" />
-              <folding>
-                <element signature="e#746#760#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/transformers/data/processors/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="169" column="8" selection-start-line="169" selection-start-column="8" selection-end-line="169" selection-end-column="8" />
+            <state relative-caret-position="192">
+              <caret line="169" column="134" lean-forward="true" selection-start-line="169" selection-start-column="134" selection-end-line="169" selection-end-column="154" />
               <folding>
                 <element signature="e#710#721#0" expanded="true" />
               </folding>
@@ -89,6 +77,18 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="201">
               <caret line="52" column="38" lean-forward="true" selection-start-line="52" selection-start-column="38" selection-end-line="52" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/transformers/data/processors/glue.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="292" lean-forward="true" selection-start-line="292" selection-end-line="292" />
+              <folding>
+                <element signature="e#746#760#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -174,10 +174,10 @@
         <option value="$PROJECT_DIR$/run_pretrained_bert_finetune.sh" />
         <option value="$PROJECT_DIR$/run_ensemble.py" />
         <option value="$PROJECT_DIR$/run_ensemble.sh" />
-        <option value="$PROJECT_DIR$/transformers/data/processors/utils.py" />
         <option value="$PROJECT_DIR$/transformers/__init__.py" />
         <option value="$PROJECT_DIR$/transformers/data/__init__.py" />
         <option value="$PROJECT_DIR$/transformers/data/processors/__init__.py" />
+        <option value="$PROJECT_DIR$/transformers/data/processors/utils.py" />
         <option value="$PROJECT_DIR$/transformers/data/processors/glue.py" />
       </list>
     </option>
@@ -553,16 +553,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/run_ensemble.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="366" column="39" selection-start-line="366" selection-start-column="39" selection-end-line="366" selection-end-column="39" />
-          <folding>
-            <element signature="e#834#849#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/transformers/data/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -584,6 +574,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/run_ensemble.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="366" column="39" selection-start-line="366" selection-start-column="39" selection-end-line="366" selection-end-column="39" />
+          <folding>
+            <element signature="e#834#849#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transformers/data/processors/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="169" column="134" lean-forward="true" selection-start-line="169" selection-start-column="134" selection-end-line="169" selection-end-column="154" />
+          <folding>
+            <element signature="e#710#721#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/run_glue.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -591,20 +601,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/transformers/data/processors/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="169" column="8" selection-start-line="169" selection-start-column="8" selection-end-line="169" selection-end-column="8" />
-          <folding>
-            <element signature="e#710#721#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/transformers/data/processors/glue.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="269" lean-forward="true" selection-start-line="269" selection-end-line="269" />
+        <state relative-caret-position="170">
+          <caret line="292" lean-forward="true" selection-start-line="292" selection-end-line="292" />
           <folding>
             <element signature="e#746#760#0" expanded="true" />
           </folding>
