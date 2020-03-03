@@ -411,6 +411,20 @@ def main():
         help="Path to pre-trained model or shortcut name selected in the list: " + ", ".join(ALL_MODELS),
     )
     parser.add_argument(
+        "--bert_model_name_or_path",
+        default=None,
+        type=str,
+        required=True,
+        help="Path to pre-trained model or shortcut name selected in the list: " + ", ".join(ALL_MODELS),
+    )
+    parser.add_argument(
+        "--roberta_model_name_or_path",
+        default=None,
+        type=str,
+        required=True,
+        help="Path to pre-trained model or shortcut name selected in the list: " + ", ".join(ALL_MODELS),
+    )
+    parser.add_argument(
         "--task_name",
         default=None,
         type=str,
@@ -593,24 +607,24 @@ def main():
         = BertConfig, RobertaConfig, EnsembleForOffensiveClassification, BertTokenizer, RobertaTokenizer
 
     bert_config = bert_config_class.from_pretrained(
-        args.bert_config_name,
+        args.bert_model_name_or_path,
         num_labels=num_labels,
         finetuning_task=args.task_name,
         cache_dir=args.cache_dir if args.cache_dir else None,
     )
     roberta_config = roberta_config_class.from_pretrained(
-        args.roberta_config_name,
+        args.roberta_model_name_or_path,
         num_labels=num_labels,
         finetuning_task=args.task_name,
         cache_dir=args.cache_dir if args.cache_dir else None,
     )
     bert_tokenizer = bert_tokenizer_class.from_pretrained(
-        args.bert_tokenizer_name,
+        args.bert_model_name_or_path,
         do_lower_case=args.do_lower_case,
         cache_dir=args.cache_dir if args.cache_dir else None,
     )
     roberta_tokenizer = roberta_tokenizer_class.from_pretrained(
-        args.roberta_tokenizer_name,
+        args.roberta_model_name_or_path,
         do_lower_case=args.do_lower_case,
         cache_dir=args.cache_dir if args.cache_dir else None,
     )
