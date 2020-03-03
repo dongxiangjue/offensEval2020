@@ -386,7 +386,7 @@ def load_and_cache_examples(args, task, bert_tokenizer, roberta_tokenizer, evalu
     all_roberta_input_ids = torch.tensor([f.roberta_input_ids for f in features], dtype=torch.long)
     all_bert_attention_mask = torch.tensor([f.bert_attention_mask for f in features], dtype=torch.long)
     all_roberta_attention_mask = torch.tensor([f.roberta_attention_mask for f in features], dtype=torch.long)
-    all_labels = torch.tensor([f.label for f in features], dtype=torch.long)
+    all_labels = torch.tensor([f.classification_label for f in features], dtype=torch.long)
 
     dataset = TensorDataset(all_bert_input_ids, all_roberta_input_ids, all_bert_attention_mask, all_roberta_attention_mask, all_labels)
     return dataset
