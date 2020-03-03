@@ -76,6 +76,8 @@ if _has_sklearn:
             return {"acc": simple_accuracy(preds, labels)}
         elif task_name == "offense":
             return acc_and_f1(preds, labels).update(pearson_and_spearman(preds_b, labels_b))
+        elif task_name == "offense-r":
+            return pearson_and_spearman(preds, labels)
         else:
             raise KeyError(task_name)
 
