@@ -197,6 +197,12 @@ def train(args, train_dataset, model, bert_tokenizer, roberta_tokenizer):
                 continue
 
             model.train()
+            model.ftcbert.train(False)
+            model.ptftcbert.train(False)
+            model.ptftrbert.train(False)
+            model.ftcroberta.train(False)
+            model.ptftcroberta.train(False)
+            model.ptftrroberta.train(False)
             batch = tuple(t.to(args.device) for t in batch)
             inputs = {"bert_input_ids": batch[0], "roberta_input_ids": batch[1],"bert_attention_mask": batch[2],"roberta_attention_mask": batch[3], "classification_labels": batch[4]}
             outputs = model(**inputs)
@@ -640,12 +646,7 @@ def main():
         torch.distributed.barrier()  # Make sure only the first process in distributed training will download model & vocab
 
     model.to(args.device)
-    model.ftcbert.train(False)
-    model.ptftcbert.train(False)
-    model.ptftrbert.train(False)
-    model.ftcroberta.train(False)
-    model.ptftcroberta.train(False)
-    model.ptftrroberta.train(False)
+
     logger.info("Training/evaluation parameters %s", args)
 
     # Training
