@@ -1,13 +1,13 @@
-export BERT_CONFIG_DIR=/home/ubuntu/bert_config
-export ROBERTA_CONFIG_DIR=/home/ubuntu/roberta_config
+export MODEL_DIR=/home/ubuntu/models
+export ENSEMBLE_DIR=/home/ubuntu/ensemble_dataset
+export TASK_NAME=OFFENSE-R
+
 
 python3 run_ensemble.py \
   --model_name_or_path $MODEL_DIR \
   --task_name $TASK_NAME \
-  --bert_config_name $BERT_CONFIG_DIR \
-  --roberta_config_name $ROBERTA_CONFIG_DIR \
-  --bert_tokenizer_name $BERT_CONFIG_DIR \
-  --roberta_tokenizer_name $ROBERTA_CONFIG_DIR \
+  --bert_model_name_or_path bert-base-uncased \
+  --roberta_model_name_or_path roberta-base \
   --do_train \
   --do_eval \
   --eval_all_checkpoints \
