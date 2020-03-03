@@ -13,6 +13,6 @@ python3 run_glue.py \
   --per_gpu_eval_batch_size 64 \
   --learning_rate 2e-5 \
   --num_train_epochs 10.0 \
-  --save_steps 5000 \
+  --save_steps 10000 \
   --output_dir roberta_fine_tune_output
 
