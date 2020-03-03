@@ -19,7 +19,7 @@ import logging
 import os
 
 from ...file_utils import is_tf_available
-from .utils import DataProcessor, InputExample, InputOffensExample, InputFeatures, InputOffenseFeatures
+from .utils import DataProcessor, InputExample, InputOffensExample, InputFeatures, InputOffenseFeatures, InputEnsembleFeatures
 
 
 if is_tf_available():
@@ -237,25 +237,35 @@ def ensemble_convert_examples_to_features(
 
         # The mask has 1 for real tokens and 0 for padding tokens. Only real
         # tokens are attended to.
-        attention_mask = [1 if mask_padding_with_zero else 0] * len(bert_input_ids)
+        bert_attention_mask = [1 if mask_padding_with_zero else 0] * len(bert_input_ids)
+        roberta_attention_mask = [1 if mask_padding_with_zero else 0] * len(roberta_input_ids)
 
         # Zero-pad up to the sequence length.
-        padding_length = max_length - len(bert_input_ids)
+        bert_padding_length = max_length - len(bert_input_ids)
+        roberta_padding_length = max_length - len(roberta_input_ids)
+
         if pad_on_left:
-            bert_input_ids = ([bert_pad_token] * padding_length) + bert_input_ids
-            roberta_input_ids = ([roberta_pad_token] * padding_length) + roberta_input_ids
-            attention_mask = ([0 if mask_padding_with_zero else 1] * padding_length) + attention_mask
-            token_type_ids = ([pad_token_segment_id] * padding_length) + token_type_ids
+            bert_input_ids = ([bert_pad_token] * bert_padding_length) + bert_input_ids
+            roberta_input_ids = ([roberta_pad_token] * roberta_padding_length) + roberta_input_ids
+            bert_attention_mask = ([0 if mask_padding_with_zero else 1] * bert_padding_length) + bert_attention_mask
+            roberta_attention_mask = ([0 if mask_padding_with_zero else 1] * roberta_padding_length) + roberta_attention_mask
+            bert_token_type_ids = ([pad_token_segment_id] * bert_padding_length) + token_type_ids
+            roberta_token_type_ids = ([pad_token_segment_id] * roberta_padding_length) + token_type_ids
         else:
-            bert_input_ids = bert_input_ids + ([bert_pad_token] * padding_length)
-            roberta_input_ids = roberta_input_ids + ([roberta_pad_token] * padding_length)
-            attention_mask = attention_mask + ([0 if mask_padding_with_zero else 1] * padding_length)
-            token_type_ids = token_type_ids + ([pad_token_segment_id] * padding_length)
+            bert_input_ids = bert_input_ids + ([bert_pad_token] * bert_padding_length)
+            roberta_input_ids = roberta_input_ids + ([roberta_pad_token] * roberta_padding_length)
+            bert_attention_mask = bert_attention_mask + ([0 if mask_padding_with_zero else 1] * bert_padding_length)
+            roberta_attention_mask = roberta_attention_mask + ([0 if mask_padding_with_zero else 1] * roberta_padding_length)
+            bert_token_type_ids = token_type_ids + ([pad_token_segment_id] * bert_padding_length)
+            roberta_token_type_ids = token_type_ids + ([pad_token_segment_id] * roberta_padding_length)
 
         assert len(bert_input_ids) == max_length, "Error with input length {} vs {}".format(len(bert_input_ids), max_length)
         assert len(roberta_input_ids) == max_length, "Error with input length {} vs {}".format(len(roberta_input_ids), max_length)
-        assert len(attention_mask) == max_length, "Error with input length {} vs {}".format(
-            len(attention_mask), max_length
+        assert len(bert_attention_mask) == max_length, "Error with input length {} vs {}".format(
+            len(bert_attention_mask), max_length
+        )
+        assert len(roberta_attention_mask) == max_length, "Error with input length {} vs {}".format(
+            len(roberta_attention_mask), max_length
         )
         assert len(token_type_ids) == max_length, "Error with input length {} vs {}".format(
             len(token_type_ids), max_length
@@ -271,13 +281,14 @@ def ensemble_convert_examples_to_features(
             logger.info("guid: %s" % (example.guid))
             logger.info("bert_input_ids: %s" % " ".join([str(x) for x in bert_input_ids]))
             logger.info("roberta_input_ids: %s" % " ".join([str(x) for x in roberta_input_ids]))
-            logger.info("attention_mask: %s" % " ".join([str(x) for x in attention_mask]))
+            logger.info("attention_mask: %s" % " ".join([str(x) for x in bert_attention_mask]))
+            logger.info("attention_mask: %s" % " ".join([str(x) for x in roberta_attention_mask]))
             logger.info("token_type_ids: %s" % " ".join([str(x) for x in token_type_ids]))
             logger.info("label: %s (id = %d)" % (example.label, label))
 
         features.append(
-            InputFeatures(
-                bert_input_ids=bert_input_ids, roberta_input_ids=roberta_input_ids,attention_mask=attention_mask, token_type_ids=token_type_ids, label=label
+            InputEnsembleFeatures(
+                bert_input_ids=bert_input_ids, roberta_input_ids=roberta_input_ids,bert_attention_mask=bert_attention_mask, roberta_attention_mask=roberta_attention_mask,token_type_ids=None, label=label
             )
         )
 

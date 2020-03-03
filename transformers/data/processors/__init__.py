@@ -4,5 +4,5 @@
 
 from .glue import glue_convert_examples_to_features, glue_output_modes, glue_processors, glue_tasks_num_labels, offense_convert_examples_to_features, ensemble_convert_examples_to_features
 from .squad import SquadExample, SquadFeatures, SquadV1Processor, SquadV2Processor, squad_convert_examples_to_features
-from .utils import DataProcessor, InputExample, InputOffensExample, InputFeatures, InputOffenseFeatures, SingleSentenceClassificationProcessor
+from .utils import DataProcessor, InputExample, InputOffensExample, InputFeatures, InputOffenseFeatures, InputEnsembleFeatures, SingleSentenceClassificationProcessor
 from .xnli import xnli_output_modes, xnli_processors, xnli_tasks_num_labels

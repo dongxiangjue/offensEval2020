@@ -43,6 +43,8 @@ from .data import (
     DataProcessor,
     InputExample,
     InputFeatures,
+    InputOffenseFeatures,
+    InputEnsembleFeatures,
     SingleSentenceClassificationProcessor,
     SquadExample,
     SquadFeatures,

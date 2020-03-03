@@ -9,6 +9,7 @@ from .processors import (
     InputOffensExample,
     InputFeatures,
     InputOffenseFeatures,
+    InputEnsembleFeatures,
     SingleSentenceClassificationProcessor,
     SquadExample,
     SquadFeatures,

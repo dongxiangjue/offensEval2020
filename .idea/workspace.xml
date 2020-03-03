@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8c040ea8-a57e-46bd-b486-ce768b9a599f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/run_ensemble.sh" beforeDir="false" afterPath="$PROJECT_DIR$/run_ensemble.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transformers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/transformers/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transformers/data/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/transformers/data/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transformers/data/processors/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/transformers/data/processors/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transformers/data/processors/glue.py" beforeDir="false" afterPath="$PROJECT_DIR$/transformers/data/processors/glue.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transformers/data/processors/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/transformers/data/processors/utils.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,11 +19,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/run_ensemble.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="455" column="24" lean-forward="true" selection-start-line="455" selection-start-column="24" selection-end-line="455" selection-end-column="24" />
+            <state relative-caret-position="92">
+              <caret line="366" column="39" selection-start-line="366" selection-start-column="39" selection-end-line="366" selection-end-column="39" />
               <folding>
                 <element signature="e#834#849#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/transformers/tokenization_utils.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="97">
+              <caret line="823" column="8" selection-start-line="823" selection-start-column="8" selection-end-line="823" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -33,11 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/transformers/data/processors/glue.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="848" column="13" lean-forward="true" selection-start-line="848" selection-start-column="5" selection-end-line="848" selection-end-column="13" />
+            <state relative-caret-position="306">
+              <caret line="294" column="19" lean-forward="true" selection-start-line="294" selection-start-column="19" selection-end-line="294" selection-end-column="19" />
               <folding>
                 <element signature="e#746#760#0" expanded="true" />
               </folding>
@@ -46,28 +59,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/transformers/data/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="20" column="12" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/transformers/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="31">
-              <caret line="42" column="13" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/transformers/data/processors/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2397">
-              <caret line="156" column="6" selection-start-line="156" selection-start-column="6" selection-end-line="156" selection-end-column="6" />
+            <state relative-caret-position="141">
+              <caret line="169" column="8" selection-start-line="169" selection-start-column="8" selection-end-line="169" selection-end-column="8" />
               <folding>
                 <element signature="e#710#721#0" expanded="true" />
               </folding>
@@ -76,28 +71,37 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/transformers/modeling_bart.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5491">
-              <caret line="489" column="20" selection-start-line="489" selection-start-column="20" selection-end-line="489" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/run_ensemble.sh">
+        <entry file="file://$PROJECT_DIR$/transformers/data/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
-              <caret line="10" column="14" lean-forward="true" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
+              <caret line="13" column="17" lean-forward="true" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/run_language_modeling.py">
+        <entry file="file://$PROJECT_DIR$/transformers/data/processors/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="405" column="40" selection-start-line="405" selection-start-column="31" selection-end-line="405" selection-end-column="40" />
+            <state relative-caret-position="102">
+              <caret line="6" column="128" selection-start-line="6" selection-start-column="128" selection-end-line="6" selection-end-column="128" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/transformers/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="201">
+              <caret line="52" column="38" lean-forward="true" selection-start-line="52" selection-start-column="38" selection-end-line="52" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/run_ensemble.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="30" lean-forward="true" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -153,8 +157,8 @@
       <find>sts-b</find>
       <find>Stsb</find>
       <find>sst</find>
-      <find>Sst2</find>
       <find>bert_config_name</find>
+      <find>Sst2</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -164,21 +168,21 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/transformers/modeling_bert.py" />
-        <option value="$PROJECT_DIR$/transformers/data/processors/utils.py" />
         <option value="$PROJECT_DIR$/transformers/data/metrics/__init__.py" />
         <option value="$PROJECT_DIR$/run_offense.py" />
         <option value="$PROJECT_DIR$/transformers/modeling_utils.py" />
         <option value="$PROJECT_DIR$/transformers/offense_test.py" />
         <option value="$PROJECT_DIR$/transformers/modeling_ensemble.py" />
-        <option value="$PROJECT_DIR$/transformers/data/processors/__init__.py" />
-        <option value="$PROJECT_DIR$/transformers/__init__.py" />
         <option value="$PROJECT_DIR$/run_glue.py" />
         <option value="$PROJECT_DIR$/offense_test.py" />
-        <option value="$PROJECT_DIR$/transformers/data/processors/glue.py" />
-        <option value="$PROJECT_DIR$/transformers/data/__init__.py" />
         <option value="$PROJECT_DIR$/run_pretrained_bert_finetune.sh" />
         <option value="$PROJECT_DIR$/run_ensemble.py" />
         <option value="$PROJECT_DIR$/run_ensemble.sh" />
+        <option value="$PROJECT_DIR$/transformers/data/processors/utils.py" />
+        <option value="$PROJECT_DIR$/transformers/__init__.py" />
+        <option value="$PROJECT_DIR$/transformers/data/__init__.py" />
+        <option value="$PROJECT_DIR$/transformers/data/processors/__init__.py" />
+        <option value="$PROJECT_DIR$/transformers/data/processors/glue.py" />
       </list>
     </option>
   </component>
@@ -210,6 +214,13 @@
               <item name="offensEval2020" type="462c0819:PsiDirectoryNode" />
               <item name="transformers" type="462c0819:PsiDirectoryNode" />
               <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="offensEval2020" type="b2602c69:ProjectViewProjectNode" />
+              <item name="offensEval2020" type="462c0819:PsiDirectoryNode" />
+              <item name="transformers" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="processors" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -422,13 +433,6 @@
         <state relative-caret-position="-2670" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/transformers/data/processors/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="187" selection-start-line="4" selection-start-column="187" selection-end-line="4" selection-end-column="187" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.PyCharmCE2018.3/system/python_stubs/1621382201/builtins.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="897">
@@ -515,23 +519,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/transformers/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="31">
-          <caret line="42" column="13" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/transformers/data/processors/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2397">
-          <caret line="156" column="6" selection-start-line="156" selection-start-column="6" selection-end-line="156" selection-end-column="6" />
-          <folding>
-            <element signature="e#710#721#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/transformers/modeling_bart.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5491">
@@ -539,34 +526,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/run_glue.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="63" column="35" selection-start-line="63" selection-start-column="35" selection-end-line="63" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/transformers/data/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="20" column="12" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/run_pretrained_bert_finetune.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/transformers/data/processors/glue.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="848" column="13" lean-forward="true" selection-start-line="848" selection-start-column="5" selection-end-line="848" selection-end-column="13" />
-          <folding>
-            <element signature="e#746#760#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -580,20 +543,75 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/run_ensemble.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="30" lean-forward="true" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transformers/tokenization_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="823" column="8" selection-start-line="823" selection-start-column="8" selection-end-line="823" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/run_ensemble.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="455" column="24" lean-forward="true" selection-start-line="455" selection-start-column="24" selection-end-line="455" selection-end-column="24" />
+        <state relative-caret-position="92">
+          <caret line="366" column="39" selection-start-line="366" selection-start-column="39" selection-end-line="366" selection-end-column="39" />
           <folding>
             <element signature="e#834#849#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/run_ensemble.sh">
+    <entry file="file://$PROJECT_DIR$/transformers/data/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="10" column="14" lean-forward="true" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
+          <caret line="13" column="17" lean-forward="true" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transformers/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="52" column="38" lean-forward="true" selection-start-line="52" selection-start-column="38" selection-end-line="52" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transformers/data/processors/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="128" selection-start-line="6" selection-start-column="128" selection-end-line="6" selection-end-column="128" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run_glue.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="63" column="35" selection-start-line="63" selection-start-column="35" selection-end-line="63" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transformers/data/processors/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="169" column="8" selection-start-line="169" selection-start-column="8" selection-end-line="169" selection-end-column="8" />
+          <folding>
+            <element signature="e#710#721#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transformers/data/processors/glue.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="294" column="19" lean-forward="true" selection-start-line="294" selection-start-column="19" selection-end-line="294" selection-end-column="19" />
+          <folding>
+            <element signature="e#746#760#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
