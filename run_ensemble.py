@@ -646,7 +646,12 @@ def main():
         torch.distributed.barrier()  # Make sure only the first process in distributed training will download model & vocab
 
     model.to(args.device)
-
+    model.ftcbert.to("cpu")
+    model.ptftcbert.to("cpu")
+    model.ptftrbert.to("cpu")
+    model.ftcroberta.to("cpu")
+    model.ptftcroberta.to("cpu")
+    model.ptftrroberta.to("cpu")
     logger.info("Training/evaluation parameters %s", args)
 
     # Training

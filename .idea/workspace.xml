@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8c040ea8-a57e-46bd-b486-ce768b9a599f" name="Default Changelist" comment="" />
+    <list default="true" id="8c040ea8-a57e-46bd-b486-ce768b9a599f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/run_ensemble.py" beforeDir="false" afterPath="$PROJECT_DIR$/run_ensemble.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,8 +15,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/run_ensemble.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1704">
-              <caret line="198" column="25" lean-forward="true" selection-start-line="198" selection-start-column="25" selection-end-line="198" selection-end-column="25" />
+            <state relative-caret-position="319">
+              <caret line="653" column="32" lean-forward="true" selection-start-line="653" selection-start-column="32" selection-end-line="653" selection-end-column="32" />
               <folding>
                 <element signature="e#834#849#0" expanded="true" />
               </folding>
@@ -23,10 +25,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/transformers/tokenization_utils.py">
+        <entry file="file://D:/Program Files (x86)/Anaconda3/Lib/site-packages/torch/nn/parallel/distributed.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="97">
-              <caret line="823" column="8" selection-start-line="823" selection-start-column="8" selection-end-line="823" selection-end-column="8" />
+            <state relative-caret-position="148">
+              <caret line="369" column="8" selection-start-line="369" selection-start-column="8" selection-end-line="369" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -123,7 +125,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>data</find>
       <find>inputs</find>
       <find>convert</find>
       <find>task_name</find>
@@ -153,6 +154,7 @@
       <find>bert_config_name</find>
       <find>ensemble</find>
       <find>features</find>
+      <find>model.tr</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -175,8 +177,8 @@
         <option value="$PROJECT_DIR$/transformers/data/processors/__init__.py" />
         <option value="$PROJECT_DIR$/transformers/data/processors/utils.py" />
         <option value="$PROJECT_DIR$/transformers/data/processors/glue.py" />
-        <option value="$PROJECT_DIR$/run_ensemble.py" />
         <option value="$PROJECT_DIR$/transformers/modeling_ensemble.py" />
+        <option value="$PROJECT_DIR$/run_ensemble.py" />
       </list>
     </option>
   </component>
@@ -599,10 +601,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://D:/Program Files (x86)/Anaconda3/Lib/site-packages/torch/nn/parallel/distributed.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="369" column="8" selection-start-line="369" selection-start-column="8" selection-end-line="369" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/run_ensemble.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1704">
-          <caret line="198" column="25" lean-forward="true" selection-start-line="198" selection-start-column="25" selection-end-line="198" selection-end-column="25" />
+        <state relative-caret-position="319">
+          <caret line="653" column="32" lean-forward="true" selection-start-line="653" selection-start-column="32" selection-end-line="653" selection-end-column="32" />
           <folding>
             <element signature="e#834#849#0" expanded="true" />
           </folding>
