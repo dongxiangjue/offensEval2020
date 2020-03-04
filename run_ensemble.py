@@ -330,8 +330,15 @@ def evaluate(args, model, bert_tokenizer, roberta_tokenizer, prefix=""):
                 preds = np.append(preds, logits.detach().cpu().numpy(), axis=0)
                 out_label_ids = np.append(out_label_ids, inputs["classification_labels"].detach().cpu().numpy(), axis=0)
 
+
         eval_loss = eval_loss / nb_eval_steps
         preds = np.argmax(preds, axis=1)
+        if out_label_ids is None:
+            output_results_file = ""
+            with open(output_results_file, "w") as results_writer:
+                for pred in preds:
+                    results_writer.write(str(pred)+"\n")
+
         result = compute_metrics(eval_task, preds, out_label_ids)
         results.update(result)
 

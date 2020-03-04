@@ -31,7 +31,7 @@ class EnsembleForOffensiveClassification(BertPreTrainedModel):
         self.ptftcroberta = RobertaModel(roberta_config)
         self.ptftrroberta = RobertaModel(roberta_config)
         self.dropout = nn.Dropout(bert_config.hidden_dropout_prob)
-        self.classfication_classifier = nn.Linear(bert_config.hidden_size, self.config.num_labels)
+        self.classfication_classifier = nn.Linear(6*bert_config.hidden_size, self.config.num_labels)
         # self.regression_classifier = nn.Linear(bert_config.hidden_size, 1)
         self.init_weights()
 
@@ -48,49 +48,49 @@ class EnsembleForOffensiveClassification(BertPreTrainedModel):
         inputs_embeds=None,
         # regression_labels=None
     ):
-        pooled_output = self.ftcbert(
+        pooled_output = torch.cat((self.ftcbert(
             bert_input_ids,
             attention_mask=bert_attention_mask,
             token_type_ids=token_type_ids,
             position_ids=position_ids,
             head_mask=head_mask,
             inputs_embeds=inputs_embeds,
-        )[1]+self.ptftcbert(
+        )[1],self.ptftcbert(
             bert_input_ids,
             attention_mask=bert_attention_mask,
             token_type_ids=token_type_ids,
             position_ids=position_ids,
             head_mask=head_mask,
             inputs_embeds=inputs_embeds,
-        )[1]+self.ptftrbert(
+        )[1],self.ptftrbert(
             bert_input_ids,
             attention_mask=bert_attention_mask,
             token_type_ids=token_type_ids,
             position_ids=position_ids,
             head_mask=head_mask,
             inputs_embeds=inputs_embeds,
-        )[1]+self.ftcroberta(
+        )[1],self.ftcroberta(
             roberta_input_ids,
             attention_mask=roberta_attention_mask,
             token_type_ids=token_type_ids,
             position_ids=position_ids,
             head_mask=head_mask,
             inputs_embeds=inputs_embeds,
-        )[1]+self.ptftcroberta(
+        )[1],self.ptftcroberta(
             roberta_input_ids,
             attention_mask=roberta_attention_mask,
             token_type_ids=token_type_ids,
             position_ids=position_ids,
             head_mask=head_mask,
             inputs_embeds=inputs_embeds,
-        )[1]+self.ptftrroberta(
+        )[1],self.ptftrroberta(
             roberta_input_ids,
             attention_mask=roberta_attention_mask,
             token_type_ids=token_type_ids,
             position_ids=position_ids,
             head_mask=head_mask,
             inputs_embeds=inputs_embeds,
-        )[1]
+        )[1]), -1)
 
         pooled_output = self.dropout(pooled_output)
         classification_logits = self.classfication_classifier(pooled_output)
@@ -109,6 +109,7 @@ class EnsembleForOffensiveClassification(BertPreTrainedModel):
         bert_config = kwargs.pop("bert_config", None)
         roberta_config = kwargs.pop("roberta_config", None)
         model = cls(bert_config,roberta_config)
+        model.cpu()
         def rename_state_dict_prefix(old_state_dict, prefix, new_prefix):
             new_state_dict = OrderedDict()
             for key in old_state_dict.keys():
@@ -119,11 +120,17 @@ class EnsembleForOffensiveClassification(BertPreTrainedModel):
                 new_state_dict[new_key] = old_state_dict[key]
             return new_state_dict
         import os.path as os
+        torch.device("cpu")
         ftcbert_state_dict = torch.load(os.join(pretrained_model_name_or_path,"ftcbert.bin"))
-        ptftcbert_state_dict = torch.load(os.join(pretrained_model_name_or_path, "ptftcbert.bin"))
+        torch.device("cpu")
+        ptftcbert_state_dict = torch.load(os.join(pretrained_model_name_or_path, "ptftcbert.bin"), map_location=torch.device('cpu'))
+        torch.device("cpu")
         ptftrbert_state_dict = torch.load(os.join(pretrained_model_name_or_path, "ptftrbert.bin"))
+        torch.device("cpu")
         ftcroberta_state_dict = torch.load(os.join(pretrained_model_name_or_path, "ftcroberta.bin"))
+        torch.device("cpu")
         ptftcroberta_state_dict = torch.load(os.join(pretrained_model_name_or_path, "ptftcroberta.bin"))
+        torch.device("cpu")
         ptftrroberta_state_dict = torch.load(os.join(pretrained_model_name_or_path, "ptftrroberta.bin"))
 
         ftcbert_state_dict = rename_state_dict_prefix(ftcbert_state_dict, "bert", "ftcbert")

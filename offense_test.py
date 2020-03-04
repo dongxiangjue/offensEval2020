@@ -12,9 +12,10 @@ if __name__ == "__main__":
     # ensemble = EnsembleForOffensiveClassification(bert_config, roberta_config)
     model_dir = "E:\\Emory\\Research\\offensEval2020\\models"
     ensemble = EnsembleForOffensiveClassification.from_pretrained(model_dir, bert_config=bert_config, roberta_config=roberta_config)
-    input_ids = np.ones(shape=(batch_size, max_length), dtype=np.int32)
+    bert_input_ids = np.ones(shape=(batch_size, max_length), dtype=np.int32)
+    roberta_input_ids = np.ones(shape=(batch_size, max_length), dtype=np.int32)
     label_ids = np.full(shape=(batch_size, ), dtype=np.int32, fill_value=0)
     ensemble.cpu()
     ensemble.float()
-    summary(ensemble, torch.tensor(input_ids.astype(np.int64)), torch.tensor(label_ids.astype(np.int64)))
+    summary(ensemble, torch.tensor(bert_input_ids.astype(np.int64)),torch.tensor(roberta_input_ids.astype(np.int64)), torch.tensor(label_ids.astype(np.int64)))
 

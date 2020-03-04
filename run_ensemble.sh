@@ -1,6 +1,6 @@
 export MODEL_DIR=/home/ubuntu/models
 export ENSEMBLE_DIR=/home/ubuntu/ensemble_dataset
-export TASK_NAME=OFFENSE-R
+export TASK_NAME=SST-2
 
 
 python3 run_ensemble.py \
@@ -15,9 +15,10 @@ python3 run_ensemble.py \
   --do_lower_case \
   --data_dir $ENSEMBLE_DIR/$TASK_NAME \
   --max_seq_length 128 \
-  --per_gpu_train_batch_size 64 \
-  --per_gpu_eval_batch_size 64 \
+  --per_gpu_train_batch_size 4 \
+  --per_gpu_eval_batch_size 4 \
   --learning_rate 2e-5 \
   --num_train_epochs 10.0 \
   --save_steps 5000 \
+  --overwrite_output_dir \
   --output_dir ensemble_finetune_output
